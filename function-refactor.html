@@ -10,30 +10,40 @@
 
     // TODO: refactor the following code to abstract repeated functionality into separate functions
 
-    var favColor = prompt('Please enter your favorite color...');
-    var favColorTrimmed = favColor.trim();
-    var favColorTrimmedAllCaps = favColorTrimmed.toUpperCase();
-    var favColorMessage = favColorTrimmedAllCaps + '! That is a great color!';
-    var colorLengthMsg = (favColorTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
-    alert(favColorMessage);
-    alert(colorLengthMsg);
+    var textLengthCutoff = 4;
 
-    var favAnimal = prompt('Please enter your favorite animal...');
-    var favAnimalTrimmed = favAnimal.trim();
-    var favAnimalTrimmedAllCaps = favAnimalTrimmed.toUpperCase();
-    var favAnimalMessage = favAnimalTrimmedAllCaps + '! That is a great animal!';
-    var animalLengthMsg = (favAnimalTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
-    alert(favAnimalMessage);
-    alert(animalLengthMsg);
+    function prepareText(text) {
+        return text.trim().toUpperCase();
+    }
 
-    var favFood = prompt('Please enter your favorite food...');
-    var favFoodTrimmed = favFood.trim();
-    var favFoodTrimmedAllCaps = favFoodTrimmed.toUpperCase();
-    var favFoodMessage = favFoodTrimmedAllCaps + '! That is a great food!';
-    var foodLengthMsg = (favFoodTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
-    alert(favFoodMessage);
-    alert(foodLengthMsg);
+    function textIsShortCheck(text, cutoff) {
+        return text < cutoff;
+    }
 
+    function prepareGreatMsg(thing, type) {
+        return thing + '! That is a great ' + type + '!';
+    }
+
+    function prepareLengthMsg(isShort) {
+        return (isShort) ? 'That answer is short!' : 'That answer is not short!';
+    }
+
+    function alertMsgs(favMsg, lengthMsg) {
+        alert(favMsg);
+        alert(lengthMsg);
+    }
+
+    function processUserIO(type, textLengthCutoff) {
+        var userInput = prepareText(prompt('Please enter your favorite ' + type + '...'));
+        alertMsgs(
+            prepareGreatMsg(userInput, type),
+            prepareLengthMsg(textIsShortCheck(userInput, textLengthCutoff))
+        );
+    }
+
+    processUserIO('color', textLengthCutoff);
+    processUserIO('animal', textLengthCutoff);
+    processUserIO('food', textLengthCutoff);
 
 </script>
 </body>
