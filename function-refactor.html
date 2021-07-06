@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Refactor</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    // TODO: refactor the following code to abstract repeated functionality into separate functions
+
+    var favColor = prompt('Please enter your favorite color...');
+    var favColorTrimmed = favColor.trim();
+    var favColorTrimmedAllCaps = favColorTrimmed.toUpperCase();
+    var favColorMessage = favColorTrimmedAllCaps + '! That is a great color!';
+    var colorLengthMsg = (favColorTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
+    alert(favColorMessage);
+    alert(colorLengthMsg);
+
+    var favAnimal = prompt('Please enter your favorite animal...');
+    var favAnimalTrimmed = favAnimal.trim();
+    var favAnimalTrimmedAllCaps = favAnimalTrimmed.toUpperCase();
+    var favAnimalMessage = favAnimalTrimmedAllCaps + '! That is a great animal!';
+    var animalLengthMsg = (favAnimalTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
+    alert(favAnimalMessage);
+    alert(animalLengthMsg);
+
+    var favFood = prompt('Please enter your favorite food...');
+    var favFoodTrimmed = favFood.trim();
+    var favFoodTrimmedAllCaps = favFoodTrimmed.toUpperCase();
+    var favFoodMessage = favFoodTrimmedAllCaps + '! That is a great food!';
+    var foodLengthMsg = (favFoodTrimmedAllCaps.length < 4) ? 'That answer is short!' : 'That answer is not short!';
+    alert(favFoodMessage);
+    alert(foodLengthMsg);
+
+
+</script>
+</body>
+</html>
